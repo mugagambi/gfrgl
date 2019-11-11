@@ -9,9 +9,9 @@ in {
 
   flags optimize=all ;
   oper 
-  let_s: Str="wacha t";
-  lets: Str="wacha ";
-  dQue: Str="je,";
+  let_s: Str="reke t";
+  lets: Str="reke ";
+  dQue: Str="atiriri,";
   inQue: Str="sijui";
  subjectmarker:Agr-> Str =\ag ->(subjclitic.s!ag).p1;
  form,forms: VForm= VGen;
@@ -47,7 +47,7 @@ in {
 
   Detsomesgprefix : Cgender ->  Str = \g ->
    case <g> of {    
-    <G3> => "li" ;
+    <G3> => "ri" ;
     <G4>   => "ki" ;
     <G9>  => "me";
     <G11> => "pe" ;
@@ -92,12 +92,12 @@ Detsomeplprefix : Cgender ->  Str = \g ->
     {s = table {
        unit => table {NCard =>\\g => Cardtwoprefix g + two ; 
                       NOrd => \\g => Ordprefix g ++ second} ; 
-       teen => table {NCard =>\\g =>"kumi na"  ++ Cardtwoprefix g + two; 
-                      NOrd => \\g => Ordprefix g ++ "kumi na" ++ Cardtwoprefix g + two} ; 
+       teen => table {NCard =>\\g =>"ikumi na"  ++ Cardtwoprefix g + two; 
+                      NOrd => \\g => Ordprefix g ++ "ikumi na" ++ Cardtwoprefix g + two} ; 
        ten  => table {NCard =>\\g =>twelve ; 
                       NOrd => \\g => Ordprefix g ++ twelve};
-       hund  => table {NCard =>\\g =>"mia mb "  + two ; 
-                      NOrd => \\g => Ordprefix g ++ "mia mb" + two}  
+       hund  => table {NCard =>\\g =>"igana mb "  + two ; 
+                      NOrd => \\g => Ordprefix g ++ "igana mb" + two}  
        }} ;
 
     mkNum1 : Str ->  Str -> {s : DForm => CardOrd => Cgender => Str} = 
@@ -105,12 +105,12 @@ Detsomeplprefix : Cgender ->  Str = \g ->
     {s = table {
        unit => table {NCard =>\\g => Cardoneprefix g + two ; 
                       NOrd => \\g => Ordprefix g ++ second} ; 
-       teen => table {NCard =>\\g =>"kumi na"  ++ Cardoneprefix g + two ; 
-                      NOrd => \\g => Ordprefix g ++ "kumi na" ++ Cardoneprefix g + two} ; 
-       ten  => table {NCard =>\\g =>"kumi" ; 
-                      NOrd => \\g => Ordprefix g ++ "kumi"};
-       hund  => table {NCard =>\\g =>"mia "  ++ two ; 
-                      NOrd => \\g => Ordprefix g ++ "mia" ++ two}  
+       teen => table {NCard =>\\g =>"ikumi na"  ++ Cardoneprefix g + two ; 
+                      NOrd => \\g => Ordprefix g ++ "ikumi na" ++ Cardoneprefix g + two} ; 
+       ten  => table {NCard =>\\g =>"ikumi" ; 
+                      NOrd => \\g => Ordprefix g ++ "ikumi"};
+       hund  => table {NCard =>\\g =>"igana "  ++ two ; 
+                      NOrd => \\g => Ordprefix g ++ "igana" ++ two}  
        }
     } ;
 
@@ -118,12 +118,12 @@ Detsomeplprefix : Cgender ->  Str = \g ->
     \six,sixth -> {s = table {
        unit => table {NCard =>\\g => six ; 
                       NOrd => \\g => Ordprefix g ++ six} ; 
-       teen => table {NCard =>\\g =>"kumi na"  ++ six ; 
-                      NOrd => \\g => Ordprefix g ++ "kumi na" ++ six} ; 
+       teen => table {NCard =>\\g =>"ikumi na"  ++ six ; 
+                      NOrd => \\g => Ordprefix g ++ "ikumi na" ++ six} ; 
        ten  => table {NCard =>\\g =>sixth ; 
                       NOrd => \\g => Ordprefix g ++ sixth ++"na" ++ six };
-       hund  => table {NCard =>\\g =>"mia "  ++ six ; 
-                      NOrd => \\g => Ordprefix g ++ "mia" ++ six}  
+       hund  => table {NCard =>\\g =>"igana "  ++ six ; 
+                      NOrd => \\g => Ordprefix g ++ "igana" ++ six}  
        } } ;
 
  
@@ -336,21 +336,21 @@ auxProgBe : VerbPhrase= { s = \\ ag , pol , tense , anter =>
    
     auxBe : VerbPhrase= { s = \\ ag , pol , tense , anter =>
     case < tense ,pol> of {
-     <Pres, Neg> => "si";
+     <Pres, Neg> => "ti";
      <Pres, Pos> => "ni";
-     <Fut, Pos> => (subjclitic.s!ag).p1 + "takuwa";
-     <Fut, Neg> => (subjclitic.s!ag).p2 + "takuwa";
-     <Past, Neg> =>(subjclitic.s!ag).p2 + "kuwa";
-     <Past, Pos> => (subjclitic.s!ag).p1 + "likuwa";
-     <Cond, Pos> => (subjclitic.s!ag).p1 + "mekuwa";
-     <Cond, Neg> => (subjclitic.s!ag).p2 + "mekuwa" };
+     <Fut, Pos> => (subjclitic.s!ag).p1 + "ga";
+     <Fut, Neg> => (subjclitic.s!ag).p2 + "ga";
+     <Past, Neg> =>(subjclitic.s!ag).p2 + "de";
+     <Past, Pos> => (subjclitic.s!ag).p1 + "gi";
+     <Cond, Pos> => (subjclitic.s!ag).p1 + "oretwo";
+     <Cond, Neg> => (subjclitic.s!ag).p2 + "oretwo" };
       s1=\\_,_,_,_=> []; compl=\\_=> [] ;progV = []; imp =\\po,imf => "";inf= ""};
 
  polanttense : Poltemp ;
 subjclitic: VerbSubjclitic;
 polanttense : Poltemp  ={s=\\p,t,a,ag => case <t,a,p> of {
-        <Past, Anter, Pos> => < (subjclitic.s!ag).p1 + "likuwa" ++ (subjclitic.s!ag).p1+ "me",[]> ; 
-        <Past, Anter, Neg> => <(subjclitic.s!ag).p1+ "likuwa" ++ (subjclitic.s!ag).p2+ "ja" ,[]>; 
+        <Past, Anter, Pos> => < (subjclitic.s!ag).p1 + "ri" ++ (subjclitic.s!ag).p1+ "me",[]> ; 
+        <Past, Anter, Neg> => <(subjclitic.s!ag).p1+ "ri" ++ (subjclitic.s!ag).p2+ "ja" ,[]>; 
         <Past, Simul,Pos> => <(subjclitic.s!ag).p1+ "li",[] >; ---some isues
         <Past, Simul,Neg> => <(subjclitic.s!ag).p2+ "ku",[]> ; -- for "ti" consder oper since some agreement dont take it
         <Pres, Simul,Pos> => <(subjclitic.s!ag).p1+ "na",[] >; ---done
@@ -359,33 +359,33 @@ polanttense : Poltemp  ={s=\\p,t,a,ag => case <t,a,p> of {
         <Pres, Anter,Neg> => <(subjclitic.s!ag).p2+ "ja",[]> ;
         <Fut, Simul,Pos> => <(subjclitic.s!ag).p1+ "ta" ,[]> ; ---done
         <Fut, Simul,Neg> => <(subjclitic.s!ag).p2+ "ta",[]>; 
-        <Fut, Anter,Pos> => <(subjclitic.s!ag).p1+ "takuwa" ++ (subjclitic.s!ag).p1+ "me" ,[]>;
-        <Fut, Anter,Neg> => <(subjclitic.s!ag).p2+ "takuwa" ++ (subjclitic.s!ag).p1+ "me",[] > ;
+        <Fut, Anter,Pos> => <(subjclitic.s!ag).p1+ "gakorwo" ++ (subjclitic.s!ag).p1+ "me" ,[]>;
+        <Fut, Anter,Neg> => <(subjclitic.s!ag).p2+ "gakorwo" ++ (subjclitic.s!ag).p1+ "me",[] > ;
         <Cond, Simul,Pos> => <(subjclitic.s!ag).p1+ "nge" ,[]> ;---done 
-        <Cond, Anter,Neg> => <(subjclitic.s!ag).p2+ "ngeli",[]>  ;
-        <Cond, Anter,Pos> => <(subjclitic.s!ag).p1+ "ngeli",[]> ;
-        <Cond, Simul,Neg> => <(subjclitic.s!ag).p2+ "ngali",[] >
+        <Cond, Anter,Neg> => <(subjclitic.s!ag).p2+ "korwo",[]>  ;
+        <Cond, Anter,Pos> => <(subjclitic.s!ag).p1+ "korwo",[]> ;
+        <Cond, Simul,Neg> => <(subjclitic.s!ag).p2+ "nari",[] >
       }};
 Poltemp : Type ={ s: Polarity => Tense => Anteriority =>  Agr => Str *Str}; 
 
 VerbSubjclitic : Type = {s : Agr => Str * Str };
 subjclitic : VerbSubjclitic = { s=\\a => case a of {
-            Ag G1 Sg P1 =><"ni","si">;
-            Ag G1 Sg P2 => <"u","hu">;
-            Ag G1 Sg P3 => <"a","ha">;
-            Ag G1 Pl P1 =><"tu","hatu">;
-            Ag G1 Pl P2 => <"m","ham">;
-            Ag G1 Pl P3 => <"wa","hawa">;
-            Ag G2 Sg P3=><"u","hau">;
-            Ag G2 Pl P3 =><"i","hai">;
-            Ag G3 Sg P3 =><"li","hali">;
-            Ag G3 Pl P3 =><"ya","haya">;
-            Ag G4 Sg P3 => <"ki","haki">;
-            Ag G4 Pl P3 => <"vi","havi">;
-            Ag G5 Sg P3 => <"i","hai">;
-            Ag G5 Pl P3 => <"zi","hazi">;
-            Ag G6 Sg P3 => <"u","hau">;
-            Ag G6 Pl P3 =><"zi","hazi">;
+            Ag G1 Sg P1 =><"ni","ti">;
+            Ag G1 Sg P2 => <"u","ndu">;
+            Ag G1 Sg P3 => <"a","nda">;
+            Ag G1 Pl P1 =><"nitu","tuti">;
+            Ag G1 Pl P2 => <"mu","mutina">;
+            Ag G1 Pl P3 => <"mara","matina">;
+            Ag G2 Sg P3=><"u","ndun">;
+            Ag G2 Pl P3 =><"i","ndi">;
+            Ag G3 Sg P3 =><"ri","riti">;
+            Ag G3 Pl P3 =><"ma","matina">;
+            Ag G4 Sg P3 => <"ki","gitina">;
+            Ag G4 Pl P3 => <"ci","citina">;
+            Ag G5 Sg P3 => <"i","dina">;
+            Ag G5 Pl P3 => <"ci","citina">;
+            Ag G6 Sg P3 => <"u","ndu">;
+            Ag G6 Pl P3 =><"ci","citina">;
             Ag G7 Sg P3 => <"u","hau">;
             Ag G7 Pl P3 =><"u","hau">;
             Ag G8 Sg P3 =><"u","hau">;
@@ -394,12 +394,12 @@ subjclitic : VerbSubjclitic = { s=\\a => case a of {
             Ag G9 Pl P3 => <"ya","haya">;
             Ag G10 Sg P3 => <"i","hai">;
             Ag G10 Pl P3=><"i","hai">;
-            Ag G11 Sg P3 =><"ku","haku">;
-            Ag G11 Pl P3 =><"ku","haku">;
-            Ag G12 Sg P3 =><"pa","hapa">;
-            Ag G12 Pl P3 => <"pa","hapa">;
-            Ag G13 Sg P3 => <"m","ham">;
-            Ag G13 Pl P3=><"m","ham">;
+            Ag G11 Sg P3 =><"ku","guti">;
+            Ag G11 Pl P3 =><"are","dane">;
+            Ag G12 Sg P3 =><"ha","hapa">;
+            Ag G12 Pl P3 => <"ha","hatina">;
+            Ag G13 Sg P3 => <"mu","mutina">;
+            Ag G13 Pl P3=><"mu","mutina">;
             Ag  _  _  _ =><"",""> }};
            mkClitic  : Str -> Str = \c -> c ++ Predef.BIND ;
 }

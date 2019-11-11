@@ -5,7 +5,7 @@ concrete GrammarKik of Grammar =
   VerbKik, 
   AdjectiveKik,
   AdverbKik,
-  NuKikalKik,
+  NumeralKik,
   SentenceKik,
   QuestionKik,
   RelativeKik,

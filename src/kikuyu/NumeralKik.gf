@@ -1,4 +1,4 @@
-concrete NuKikalKik of NuKikal = CatKik [NuKikal,Digits] ** 
+concrete NumeralKik of Numeral = CatKik [Numeral,Digits] ** 
 open Prelude,DiffKik,MorphoKik in {
 
 lincat 
@@ -9,19 +9,19 @@ lincat
   Sub1000000 = {s : CardOrd => Cgender => Str ; n : Number} ;
 
 lin num x = x ;
-lin n2 = mkNum2 "ili"   "ishirini"  "pili" ;
-lin n3 = mkNum "tatu" "thelathini" ;
-lin n4 = mkNum "nne"  "arobaini" ;
-lin n5 = mkNum "tano"  "hamsini" ;
-lin n6 = regNum "sita"  "sitini";
-lin n7 = regNum "saba" "sabini";
-lin n8 = regNum "nane" "themanini";
-lin n9 = regNum "tisa" "tisini" ;
+lin n2 = mkNum2 "igiri"   "kibao"  "igiri" ;
+lin n3 = mkNum "ithatu" "mirongo itatu" ;
+lin n4 = mkNum "inya"  "mirongo ina" ;
+lin n5 = mkNum "ithano"  "mirongo itano" ;
+lin n6 = regNum "ithathatu"  "mirongo itandatu";
+lin n7 = regNum "mugwaja" "mirongo mugwanja";
+lin n8 = regNum "inyanya" "mirongo inana";
+lin n9 = regNum "kenda" "mirongo kenda" ;
 
-lin pot01 = mkNum1 "moja"  "kwanza" ** {n = Sg} ;
+lin pot01 = mkNum1 "imwe"  "mbere" ** {n = Sg} ;
 lin pot0 d = d ** {n = Pl} ;
-lin pot110 = regCardOrd "kumi" ** {n = Pl} ;
-lin pot111 = regCardone "kumi na" "moja" ** {n = Pl} ; -- creat another function to be Cgender specific
+lin pot110 = regCardOrd "ikumi" ** {n = Pl} ;
+lin pot111 = regCardone "ikumi na" "imwe" ** {n = Pl} ; -- creat another function to be Cgender specific
 lin pot1to19 d = {s = d.s ! teen} ** {n = Pl} ;
 lin pot0as1 n = {s = n.s ! unit}  ** {n = n.n} ;
 lin pot1 d = {s = d.s ! ten} ** {n = Pl} ;

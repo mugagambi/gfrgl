@@ -245,18 +245,18 @@ mkN2 = overload {
   mkN3 = \n,p,q -> lin N3 (n ** {c2 = p ; c3 = q}) ;  
   mkPrepof : Number => Cgender => Str = 
     table Number { Sg => table { G1 |G2|G6|G7 |G8 => "wa" ; 
-                                 G3=> "la" ; 
-                                 G4 => "cha" ; 
+                                 G3=> "ri" ; 
+                                 G4 => "gia" ; 
                                  G5 => "ya" ; 
-                                 G11 => "pa";
-                                 G12 => "kwa";
-                                 G13 => "mwa";
+                                 G11 => "ha";
+                                 G12 => "gwa";
+                                 G13 => "wa";
                                   _ => ""} ; 
                                  
                    Pl => table { G1 => "wa" ; 
-                                 G2|G3 |G8 |G9 |G10 => "ya" ; 
-                                 G4 => "vya" ; 
-                                 G5|G6 => "za" ; 
+                                 G2|G3 |G8 |G9 |G10 => "ci" ; 
+                                 G4 => "ci" ; 
+                                 G5|G6 => "ci" ; 
                                  _ => ""} } ;
   
                        
